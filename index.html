@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دندانکده سلامت | کلینیک تخصصی دندانپزشکی</title>
+<meta name="description" content="دندانکده سلامت؛ کلینیک تخصصی دندانپزشکی در بلوار کشاورز تهران">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+:root{
+  --lav:#efe8fb;--lav2:#d8c4f3;--purple:#7443aa;--royal:#542381;--deep:#32164d;
+  --ice:#eef8ff;--peri:#b8c4ff;--pink:#f9dce9;--white:#fffdfd;--ink:#292231;
+  --muted:#777080;--line:#e9e1f1;--ok:#1e9b76;--warn:#d98b20;--danger:#d34e67;
+  --shadow:0 20px 60px rgba(82,45,115,.12);--shadow2:0 8px 28px rgba(82,45,115,.09)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#fcfbff;color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}
+a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}
+.wrap{width:min(1180px,92%);margin:auto}.hide{display:none!important}
+.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:800;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.98)}
+.primary{background:linear-gradient(120deg,#8455b8,#552a80);color:#fff;box-shadow:0 12px 24px #60358c2b}
+.soft{background:#f1eafb;color:var(--royal)}.outline{border:1px solid #cfb7e5;background:#fff;color:var(--royal)}
+.danger-btn{background:#fde8ed;color:#b73b56;border:1px solid #f5c2ce}
+.btn-sm{padding:7px 12px;font-size:11px;border-radius:10px}
+
+/* SITE */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#e7dafa);border:1px solid #d7c0f0;color:var(--purple);font-size:26px;box-shadow:0 7px 25px #7141a522}
+.brand b{display:block;color:var(--deep);font-size:19px}.brand small{display:block;color:#8b73a8;font-size:11px;margin-top:2px}
+.links{display:flex;gap:22px;color:#655b70;font-size:13px}.links a:hover{color:var(--purple)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.menu{display:none;border:0;background:#f1eafb;border-radius:13px;padding:10px 13px;color:var(--deep);font-size:20px}
+.hero{padding:68px 0 45px;overflow:hidden;background:radial-gradient(circle at 7% 12%,#e6f5ff 0,transparent 33%),radial-gradient(circle at 92% 0,#eee0ff 0,transparent 35%),linear-gradient(180deg,#fff,#fcfbff)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:#f0eafb;color:var(--purple);font-size:12px;font-weight:800}
+.hero h1{font-size:clamp(35px,5vw,62px);line-height:1.4;color:var(--deep);margin:17px 0 12px;font-weight:900}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7a46aa,#b56cbd);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:16px;line-height:2.25;color:#6e6776;max-width:650px}
+.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hours{margin-top:22px;font-size:13px;color:#766b80}
+.hero-visual{min-height:500px;border-radius:40px;overflow:hidden;position:relative;background:linear-gradient(145deg,#e9dcfa,#eaf7ff);box-shadow:var(--shadow)}
+.hero-visual img{width:100%;height:100%;min-height:500px;object-fit:cover;filter:saturate(.9)}
+.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(41,22,63,.35))}
+.floating{position:absolute;z-index:2;background:rgba(255,255,255,.88);border:1px solid #fff;border-radius:18px;padding:12px 15px;box-shadow:var(--shadow2);font-size:12px;color:var(--deep);animation:float 4s ease-in-out infinite}
+.f1{top:24px;right:24px}.f2{bottom:28px;left:24px;animation-delay:1s}@keyframes float{50%{transform:translateY(-7px)}}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:25px}
+.mini-stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px;text-align:center;box-shadow:var(--shadow2)}
+.mini-stat b{display:block;color:var(--purple);font-size:18px}.mini-stat span{font-size:11px;color:var(--muted)}
+section{padding:76px 0}
+.section-head{text-align:center;max-width:720px;margin:0 auto 34px}
+.section-head span{font-size:12px;font-weight:900;color:var(--purple)}
+.section-head h2{margin:8px 0;font-size:31px;color:var(--deep)}
+.section-head p{margin:0;color:var(--muted);line-height:2}
+.features,.services,.team,.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:23px;box-shadow:var(--shadow2)}
+.icon{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#efe5fb,#eaf7ff);color:var(--purple);font-size:22px}
+.card h3{margin:14px 0 7px;color:var(--deep);font-size:17px}
+.card p{margin:0;color:var(--muted);line-height:2;font-size:13px}
+.service{position:relative;overflow:hidden}
+.service:after{content:"";position:absolute;width:130px;height:130px;border-radius:50%;left:-55px;top:-55px;background:#f2eafb}
+.service-top{display:flex;justify-content:space-between;align-items:center}
+.service-top strong{color:#b08acb;font-size:24px}
+.details{border:0;background:none;color:var(--purple);font-weight:900;padding:13px 0 0}
+.gallery{background:linear-gradient(120deg,#f5effc,#eff8ff)}
+.gallery-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:13px}
+.media-card{height:190px;border-radius:22px;overflow:hidden;position:relative;background:#ddd}
+.media-card.tall{grid-row:span 2;height:393px}
+.media-card img{width:100%;height:100%;object-fit:cover}
+.media-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(25,12,38,.7))}
+.media-label{position:absolute;z-index:2;bottom:13px;right:14px;color:#fff;font-weight:800;font-size:12px}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba{border-radius:24px;overflow:hidden;position:relative;min-height:310px}
+.ba img{width:100%;height:100%;object-fit:cover}
+.ba span{position:absolute;top:14px;right:14px;background:#fffddf0e;color:#fff;border:1px solid #fff8;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:800}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:21px}
+.step b{width:35px;height:35px;border-radius:50%;background:#eee4fb;color:var(--purple);display:grid;place-items:center}
+.step h3{font-size:15px}.step p{font-size:12px;color:var(--muted);line-height:1.9}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.about-art{border-radius:30px;min-height:390px;overflow:hidden}
+.about-art img{width:100%;height:100%;min-height:390px;object-fit:cover}
+.about-copy p{font-size:14px;line-height:2.25;color:var(--muted)}
+.cta{background:linear-gradient(115deg,#5c3389,#9563bd);border-radius:34px;padding:42px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:18px;box-shadow:0 22px 55px #5e338a33}
+.cta h2{margin:0 0 8px;font-size:28px}.cta p{margin:0;color:#f0e9f6}.cta .btn{background:#fff;color:var(--deep)}
+form{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+input,textarea,select{width:100%;border:1px solid #e5dced;border-radius:14px;padding:13px;background:#fff;outline:none;color:var(--ink)}
+input:focus,textarea:focus,select:focus{border-color:#a98ac9;box-shadow:0 0 0 3px #eee6f7}
+textarea{min-height:100px;resize:vertical;grid-column:1/-1}
+.full{grid-column:1/-1}.form-note{font-size:11px;color:var(--muted);line-height:1.9}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.contact-item{padding:14px 0;border-bottom:1px solid var(--line);line-height:2}
+.contact-item b{color:var(--deep)}.contact-item a{color:var(--purple);direction:ltr;display:inline-block}
+.map-buttons{display:flex;gap:8px;flex-wrap:wrap}
+footer{background:#211b2a;color:#eee7f3;padding:45px 0 100px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer p{color:#c3b8cb;line-height:2}.footer-links{display:grid;gap:10px;color:#d8cede;font-size:13px}
+.bottom{display:none;position:fixed;bottom:0;left:0;right:0;z-index:45;background:#ffffffeb;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 4%;justify-content:space-around}
+.bottom a{display:grid;gap:2px;text-align:center;color:#756a80;font-size:10px}.bottom b{font-size:18px}
+
+/* Chat */
+.chat{position:fixed;left:20px;bottom:92px;z-index:60}
+.chat-toggle{width:60px;height:60px;border:0;border-radius:50%;background:linear-gradient(135deg,#8052b4,#52277d);color:#fff;font-size:23px;box-shadow:0 14px 30px #4d277044;transition:.25s}
+.chat-toggle:hover{transform:scale(1.08)}
+.chatbox{display:none;position:absolute;bottom:72px;left:0;width:min(410px,92vw);background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.chatbox.open{display:block}
+.chat-head{background:linear-gradient(120deg,#6f409c,#542381);color:#fff;padding:15px;font-weight:900}
+.chat-head small{display:block;font-weight:500;opacity:.85;margin-top:2px}
+.chat-body{padding:14px;color:#62596b;font-size:13px;line-height:1.9;max-height:58vh;overflow:auto}
+.ai-msg{margin:8px 0;padding:12px 14px;border-radius:16px 16px 16px 4px;background:#f6f1fa;max-width:92%}
+.user-msg{margin:8px 0;padding:12px 14px;border-radius:16px 16px 4px 16px;background:linear-gradient(120deg,#efe5fb,#e8d9f7);text-align:right;margin-left:auto;max-width:85%}
+.quick-row{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.quick-row button{width:auto!important;display:inline-block!important;padding:8px 12px!important;border:1px solid #e5d9ef;background:#f8f4fc;border-radius:12px;color:#57307c;font-size:12px;margin:0!important}
+.chat-input{display:flex;gap:7px;padding:10px;border-top:1px solid #eee6f2}
+.chat-input input{flex:1;border:1px solid #dfd4e8;border-radius:12px;padding:11px;outline:none}
+.chat-input button{background:#6f409c!important;color:#fff!important;border:0!important;padding:10px 16px!important;border-radius:12px;font-weight:700}
+
+/* Modal */
+.modal{display:none;position:fixed;inset:0;background:#1e132b99;z-index:100;place-items:center;padding:18px}
+.modal.open{display:grid}
+.modal-box{width:min(620px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:26px;padding:25px;box-shadow:var(--shadow)}
+.close{float:left;width:34px;height:34px;border:0;border-radius:50%;background:#f0eafb;color:var(--deep);font-size:18px}
+.form-modal .modal-box{width:min(520px,100%)}
+.form-modal label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px;font-weight:600}
+.form-modal .field{margin-bottom:12px}
+.form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail-item{background:#faf8fc;border-radius:12px;padding:12px}
+.detail-item b{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
+.detail-item span{color:var(--deep);font-weight:600}
+
+/* Toast */
+.toast-wrap{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:999999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast{background:#32164d;color:#fff;padding:12px 22px;border-radius:14px;font-size:13px;font-weight:600;box-shadow:0 12px 40px rgba(0,0,0,.25);animation:toastIn .35s ease;pointer-events:auto}
+.toast.ok{background:#1e9b76}.toast.err{background:#d34e67}
+@keyframes toastIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+
+/* Admin Login */
+.admin-login{position:fixed;inset:0;z-index:99999;display:none;place-items:center;background:linear-gradient(135deg,#efe8fb,#eef8ff 55%,#f9dce9);backdrop-filter:blur(12px)}
+.admin-login.open{display:grid}
+.login-card{width:min(430px,calc(100% - 32px));background:#fffdfd;border:1px solid #e9e1f1;border-radius:28px;padding:32px;box-shadow:0 30px 90px rgba(82,45,115,.22);text-align:center}
+.login-logo{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:linear-gradient(135deg,#7443aa,#542381);color:#fff;font-size:30px;box-shadow:0 14px 35px rgba(84,35,129,.25)}
+.login-card h2{margin:0 0 7px;color:#32164d}.login-card p{color:#777080;margin:0 0 20px}
+.login-card input{width:100%;padding:14px 16px;border:1px solid #e9e1f1;border-radius:14px;outline:none;background:#fcfbff}
+.login-error{min-height:24px;color:#d34e67;font-size:13px;margin-top:8px}
+.login-card small{display:block;color:#9992a2;line-height:1.8;margin-top:16px}
+
+/* Admin */
+.admin{display:none;min-height:100vh;background:#f6f3fa}
+.admin.active{display:block}.site.hidden{display:none}
+.admin-shell{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{background:#21162c;color:#eee8f4;padding:18px 12px;position:sticky;top:0;height:100vh;overflow:auto}
+.side-brand{display:flex;align-items:center;gap:10px;padding:8px 9px 18px;border-bottom:1px solid #ffffff15}
+.side-logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#9b6ac9,#4f2878);display:grid;place-items:center}
+.side-brand b{font-size:14px}.side-brand small{display:block;color:#b9a8c5;font-size:10px}
+.side-nav{margin-top:14px;display:grid;gap:3px}
+.side-nav button{border:0;background:transparent;color:#cbbfd4;padding:10px 12px;border-radius:12px;text-align:right;display:flex;align-items:center;gap:9px;font-size:12px;transition:.15s}
+.side-nav button:hover,.side-nav button.active{background:#ffffff14;color:#fff}
+.side-section{font-size:9px;color:#8e7f9a;margin:14px 10px 5px;letter-spacing:.5px}
+.admin-main{padding:20px;min-width:0}
+.admin-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.admin-top h1{font-size:22px;color:var(--deep);margin:0}
+.admin-top p{margin:4px 0 0;color:var(--muted);font-size:11px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow2);position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;top:0;right:0;width:4px;height:100%;background:linear-gradient(180deg,#8455b8,#552a80)}
+.kpi small{color:var(--muted);font-size:11px}.kpi b{display:block;font-size:26px;color:var(--deep);margin:6px 0}
+.trend{font-size:10px;color:var(--ok)}
+.admin-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:14px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow2)}
+.panel h3{margin:0 0 14px;color:var(--deep);font-size:14px;display:flex;align-items:center;justify-content:space-between}
+.table-wrap{overflow:auto}
+.table{width:100%;border-collapse:collapse;font-size:11px}
+.table th,.table td{padding:10px 8px;border-bottom:1px solid #eee8f3;text-align:right;white-space:nowrap}
+.table th{color:#8b7e96;font-weight:700;position:sticky;top:0;background:#fff}
+.table tr:hover td{background:#faf8fc}
+.badge{display:inline-flex;padding:4px 9px;border-radius:99px;font-size:9px;font-weight:800;cursor:default}
+.badge.clickable{cursor:pointer}
+.green{background:#e8f7f1;color:#178463}.yellow{background:#fff4dc;color:#a96b13}
+.red{background:#fde8ed;color:#b73b56}.purple{background:#f0e8fa;color:#673a93}
+.blue{background:#e8f0fe;color:#3b6cb7}.gray{background:#f0eef2;color:#6b6575}
+.admin-section{display:none}.admin-section.active{display:block}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.toolbar input,.toolbar select{max-width:220px;padding:10px 12px;font-size:12px}
+.list-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.list-card{border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff;transition:.2s}
+.list-card:hover{border-color:#d4b8ec;box-shadow:0 8px 24px rgba(82,45,115,.08)}
+.list-card b{color:var(--deep)}.list-card small{display:block;color:var(--muted);margin-top:4px;font-size:11px}
+.list-card .card-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.content-editor{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.content-editor .full{grid-column:1/-1}
+.media-admin{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.media-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.media-item img{width:100%;height:110px;object-fit:cover}
+.media-item div{padding:8px;font-size:10px}
+.upload-box{border:2px dashed #cdb9e2;border-radius:16px;padding:28px;text-align:center;background:#fbf8fe;color:#76667f}
+.upload-box input{border:0;background:none}
+.notice{padding:10px 12px;border-radius:12px;background:#f1ebfa;color:#5d3c7e;font-size:11px;line-height:1.9}
+.sticky-note{background:#fff5c9;border:1px solid #f0dfa0;border-radius:14px;padding:14px;min-height:100px;outline:none}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.day{background:#faf8fc;border:1px solid #eee7f3;border-radius:10px;padding:8px;text-align:center;font-size:10px;min-height:58px;cursor:pointer;transition:.15s}
+.day:hover{background:#f3ecfa}.day.today{background:#efe4fa;border-color:#cdb0e9;color:#60348a;font-weight:900}
+.day.has-apt{background:#e8f7f1;border-color:#a8dcc4}
+.settings-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee8f3}
+.switch{width:44px;height:24px;border-radius:99px;background:#d7cfdf;padding:3px;cursor:pointer;transition:.2s}
+.switch i{display:block;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch.on{background:#7c4bb0}.switch.on i{margin-right:20px}
+.empty-state{padding:28px;text-align:center;color:#8d8598;border:1px dashed #ddd2ea;border-radius:14px;background:#fcfaff;line-height:2}
+.activity-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f0eaf6;font-size:12px}
+.activity-item .dot{width:8px;height:8px;border-radius:50%;background:var(--purple);margin-top:6px;flex-shrink:0}
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:6px 12px;border-radius:99px;font-size:11px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;font-weight:600}
+.chip.active{background:#f0eafb;color:var(--royal);border-color:#d4b8ec}
+.stat-bar{height:6px;background:#eee8f3;border-radius:99px;overflow:hidden;margin-top:8px}
+.stat-bar i{display:block;height:100%;background:linear-gradient(90deg,#8455b8,#552a80);border-radius:99px}
+.more-wrap{position:relative}
+.more-btn{width:44px;height:44px;border:1px solid #dfd2eb;background:#f7f1fc;color:#542381;border-radius:14px;font-size:24px;line-height:1}
+.more-menu{position:absolute;top:52px;right:0;min-width:190px;padding:8px;background:rgba(255,255,255,.97);border:1px solid #e8def0;border-radius:16px;box-shadow:0 18px 45px rgba(82,45,115,.16);display:none;z-index:100}
+.more-menu.open{display:block}
+.more-menu button{width:100%;border:0;background:transparent;text-align:right;padding:12px 14px;border-radius:11px;color:#39234d}
+.more-menu button:hover{background:#f1eafb;color:#542381}
+.links.mobile-open{display:flex!important;position:absolute;top:78px;right:16px;left:16px;flex-direction:column;gap:4px;padding:12px;background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 45px rgba(67,35,92,.15);z-index:120}
+.links.mobile-open a{padding:12px 14px;border-radius:11px}
+
+@media(max-width:900px){
+  .links{display:none}.menu{display:block}
+  .hero-grid,.about-grid,.contact-grid,.admin-grid{grid-template-columns:1fr}
+  .hero-visual,.hero-visual img{min-height:360px}
+  .features,.services,.team,.faq-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}.media-card.tall{grid-row:auto;height:190px}
+  .process{grid-template-columns:repeat(2,1fr)}.dash-grid{grid-template-columns:repeat(2,1fr)}
+  .admin-shell{grid-template-columns:1fr}.sidebar{height:auto;position:relative}
+  .side-nav{grid-template-columns:repeat(4,1fr)}.side-section{display:none}
+  .detail-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .brand b{font-size:15px}.logo{width:46px;height:46px}.nav-actions .primary{display:none}
+  .hero{padding-top:38px}.hero h1{font-size:34px}
+  .features,.services,.team,.faq-grid,.gallery-grid,.process{grid-template-columns:1fr}
+  .before-after{grid-template-columns:1fr}.cta{display:block;padding:28px}
+  .footer-grid{grid-template-columns:1fr}form{grid-template-columns:1fr}
+  .bottom{display:flex}.chat{bottom:80px}.admin-main{padding:12px}
+  .side-nav{grid-template-columns:repeat(2,1fr)}.dash-grid{grid-template-columns:1fr 1fr}
+  .content-editor{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .nav{position:relative}.nav .links{display:none}.menu{display:block!important}
+  .nav-actions .primary{display:none}
+}
+
+/* Stage 2 theme + language */
+body.dark{background:#17131d;color:#eee}
+body.dark .site-header,body.dark .card,body.dark .mini-stat,body.dark input,body.dark textarea,body.dark select{background:#241d2d;color:#eee;border-color:#49385a}
+body.dark .brand b,body.dark h1,body.dark h2,body.dark h3{color:#fff}
+.lang-box{display:flex;gap:6px;align-items:center}.lang-box button{border:0;background:#efe8fb;padding:7px 10px;border-radius:10px}
+.admin-pro{padding:12px;border-radius:16px;background:#f4edff;margin:12px}
+</style>
+</head>
+<body>
+<header class="brand-logo"><img src="assets/logo.png" alt="Dandankade Salamat Dental Clinic Logo" width="180"><div class="lang-box"><button onclick="setLang('fa')">FA</button><button onclick="setLang('en')">EN</button><button onclick="setLang('ar')">AR</button><button onclick="toggleDark()">☾</button></div></header>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ===================== SITE ===================== -->
+<div id="site" class="site">
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#home"><div class="logo">✦</div><div><b>دندانکده سلامت</b><small>کلینیک تخصصی دندانپزشکی</small></div></a>
+    <nav class="links">
+      <a href="#services">خدمات</a><a href="#work">نمونه‌کار</a><a href="#about">درباره</a>
+      <a href="#team">تیم</a><a href="#faq">سؤالات</a><a href="#contact">ارتباط</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn primary" href="#booking">رزرو مشاوره رایگان</a>
+      <div class="more-wrap">
+        <button class="more-btn" onclick="toggleMoreMenu(event)">⋮</button>
+        <div id="moreMenu" class="more-menu"><button type="button" onclick="openAdmin();closeMoreMenu()">پنل مدیریت</button></div>
+      </div>
+      <button class="menu" onclick="toggleMobile()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow" id="heroEyebrow">✧ لبخند سالم، حس خوب زندگی</span>
+    <h1 id="heroTitle">لبخند شما،<br><em>امضای زیبایی و سلامت شماست</em></h1>
+    <p id="heroIntro">در دندانکده، با دانش تخصصی، تجهیزات مدرن و محیطی آرام، مسیر رسیدن به لبخندی سالم و زیبا را برای شما هموار می‌کنیم.</p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="#booking">رزرو و مشاوره رایگان ←</a>
+      <a class="btn soft" href="#services">مشاهده خدمات</a>
+    </div>
+    <div class="hours" id="heroHours">◷ شنبه تا پنجشنبه | ساعت کاری: ۱۰ صبح تا ۸ شب</div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b>۶+</b><span>خدمت تخصصی</span></div>
+      <div class="mini-stat"><b>۱ به ۱</b><span>برنامه درمان اختصاصی</span></div>
+      <div class="mini-stat"><b>همراه شما</b><span>از مشاوره تا پیگیری</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&fm=jpg&q=85&w=1400" alt="کلینیک">
+    <div class="floating f1">✧ مراقبت تخصصی و دقیق</div>
+    <div class="floating f2">♡ آرامش در تمام مراحل درمان</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><span>تجربه‌ای متفاوت</span><h2>چرا دندانکده سلامت؟</h2><p>درمان خوب ترکیبی از تشخیص، برنامه‌ریزی، شفافیت و همراهی است.</p></div>
+  <div class="features">
+    <div class="card"><div class="icon">✦</div><h3>توجه به جزئیات</h3><p>بررسی شرایط هر بیمار و طراحی مسیر درمان متناسب.</p></div>
+    <div class="card"><div class="icon">⌁</div><h3>تجهیزات نوین</h3><p>امکانات مدرن و روش‌های متناسب با نوع درمان.</p></div>
+    <div class="card"><div class="icon">♡</div><h3>محیط آرام</h3><p>توضیح مرحله‌به‌مرحله برای تجربه‌ای آسوده.</p></div>
+    <div class="card"><div class="icon">◷</div><h3>برنامه‌ریزی منظم</h3><p>هماهنگی نوبت، یادآوری و پیگیری.</p></div>
+    <div class="card"><div class="icon">☏</div><h3>مرکز تماس</h3><p>ثبت تماس‌ها در CRM و پیگیری هر سرنخ.</p></div>
+    <div class="card"><div class="icon">◇</div><h3>شفافیت</h3><p>آشنایی با گزینه‌ها و مسیر درمان پس از معاینه.</p></div>
+  </div>
+</div></section>
+
+<section id="services" style="background:#faf8fd"><div class="wrap">
+  <div class="section-head"><span>خدمات</span><h2>مراقبت متناسب با لبخند شما</h2><p>هر خدمت با ارزیابی دندانپزشک شروع می‌شود.</p></div>
+  <div class="services" id="servicesGrid">
+    <div class="card service"><div class="service-top"><div class="icon">🦷</div><strong>۰۱</strong></div><h3>ایمپلنت</h3><p>جایگزینی دندان از دست‌رفته با پایه سازگار با استخوان فک.</p><button class="details" onclick="showService('ایمپلنت','ایمپلنت برای جایگزینی دندان از دست‌رفته. بررسی استخوان و لثه ضروری است.')">جزئیات ←</button></div>
+    <div class="card service"><div class="service-top"><div class="icon">✧</div><strong>۰۲</strong></div><h3>جرم‌گیری</h3><p>پاک‌سازی پلاک و رسوبات سخت‌شده از سطوح دندان و لثه.</p><button class="details" onclick="showService('جرم‌گیری','جرم‌گیری رسوبات سخت‌شده را برمی‌دارد و به سلامت لثه کمک می‌کند.')">جزئیات ←</button></div>
+    <div class="card service"><div class="service-top"><div class="icon">◈</div><strong>۰۳</strong></div><h3>کامپوزیت</h3><p>ترمیم یا اصلاح ظاهر دندان با مواد همرنگ.</p><button class="details" onclick="showService('کامپوزیت','کامپوزیت برای ترمیم و اصلاحات ظاهری. رنگ و فرم توسط دندانپزشک بررسی می‌شود.')">جزئیات ←</button></div>
+    <div class="card service"><div class="service-top"><div class="icon">☼</div><strong>۰۴</strong></div><h3>بلیچینگ</h3><p>روشن‌تر کردن رنگ دندان با مواد سفیدکننده.</p><button class="details" onclick="showService('بلیچینگ','بلیچینگ رنگ دندان را روشن‌تر می‌کند. حساسیت موقت ممکن است رخ دهد.')">جزئیات ←</button></div>
+    <div class="card service"><div class="service-top"><div class="icon">⌁</div><strong>۰۵</strong></div><h3>عصب‌کشی</h3><p>درمان بافت ملتهب یا عفونی داخل دندان.</p><button class="details" onclick="showService('عصب‌کشی','در درمان ریشه، بافت آسیب‌دیده پاک‌سازی و فضای ریشه پر می‌شود.')">جزئیات ←</button></div>
+    <div class="card service"><div class="service-top"><div class="icon">◇</div><strong>۰۶</strong></div><h3>لمینت</h3><p>پوسته‌های نازک سرامیکی برای اصلاح رنگ و فرم.</p><button class="details" onclick="showService('لمینت','لمینت سرامیکی روی سطح جلویی دندان قرار می‌گیرد.')">جزئیات ←</button></div>
+  </div>
+</div></section>
+
+<section id="work" class="gallery"><div class="wrap">
+  <div class="section-head"><span>نمونه‌کار</span><h2>قبل و بعد و فضای کلینیک</h2></div>
+  <div class="gallery-grid">
+    <div class="media-card tall"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80" alt=""><div class="media-label">قبل و بعد</div></div>
+    <div class="media-card"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt=""><div class="media-label">فضای درمان</div></div>
+    <div class="media-card"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" alt=""><div class="media-label">مشاوره</div></div>
+    <div class="media-card"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80" alt=""><div class="media-label">تجربه بیمار</div></div>
+    <div class="media-card"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=600&q=80" alt=""><div class="media-label">ایمپلنت</div></div>
+    <div class="media-card"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=600&q=80" alt=""><div class="media-label">تجهیزات</div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head"><span>مسیر درمان</span><h2>از اولین تماس تا پیگیری</h2></div>
+  <div class="process">
+    <div class="step"><b>۱</b><h3>ثبت درخواست</h3><p>نام و موضوع در CRM ثبت می‌شود.</p></div>
+    <div class="step"><b>۲</b><h3>مشاوره و معاینه</h3><p>نیاز بیمار بررسی می‌شود.</p></div>
+    <div class="step"><b>۳</b><h3>طرح درمان</h3><p>گزینه‌ها و زمان‌بندی توضیح داده می‌شود.</p></div>
+    <div class="step"><b>۴</b><h3>درمان و پیگیری</h3><p>درمان و یادآوری در پرونده ثبت می‌شود.</p></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap about-grid">
+  <div class="about-art"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+  <div class="about-copy">
+    <span class="eyebrow">درباره کلینیک</span>
+    <h2 style="color:var(--deep);font-size:28px">دندانکده سلامت؛ همراه لبخند شما</h2>
+    <p>موقعیتی دسترسی‌پذیر در بلوار کشاورز تهران؛ روبه‌روی بیمارستان ساسان.</p>
+    <p><b>آدرس:</b> تهران، بلوار کشاورز غرب به شرق، نرسیده به فلسطین، روبروی بیمارستان ساسان، پلاک ۱۰۰، طبقه اول</p>
+    <a class="btn soft" href="#contact">راه‌های ارتباطی</a>
+  </div>
+</div></section>
+
+<section id="team" style="background:#faf8fd"><div class="wrap">
+  <div class="section-head"><span>تیم درمان</span><h2>پزشکان و همراهان</h2></div>
+  <div class="team" id="teamGrid">
+    <div class="card"><div class="icon">♙</div><h3>دندانپزشک</h3><p>معاینه، تشخیص و طراحی برنامه درمان.</p></div>
+    <div class="card"><div class="icon">♧</div><h3>دستیار درمان</h3><p>همراهی در آماده‌سازی و اجرای درمان.</p></div>
+    <div class="card"><div class="icon">♡</div><h3>پذیرش</h3><p>هماهنگی نوبت، تماس‌ها و پیگیری.</p></div>
+  </div>
+</div></section>
+
+<section id="booking"><div class="wrap">
+  <div class="section-head"><span>مشاوره رایگان</span><h2 id="ctaTitle">آماده شروع مسیر لبخند سالم هستید؟</h2></div>
+  <div class="card">
+    <form id="bookingForm">
+      <input name="name" required placeholder="نام و نام خانوادگی">
+      <input name="phone" required inputmode="tel" pattern="09[0-9]{9}" placeholder="شماره موبایل">
+      <select name="topic" required>
+        <option value="">موضوع</option><option>ایمپلنت</option><option>جرم‌گیری</option><option>کامپوزیت</option>
+        <option>بلیچینگ</option><option>عصب‌کشی</option><option>لمینت</option><option>مشاوره عمومی</option>
+      </select>
+      <input name="time" placeholder="زمان مناسب تماس">
+      <textarea name="message" placeholder="توضیحات"></textarea>
+      <button class="btn primary full" type="submit">ثبت درخواست</button>
+      <div id="formMessage" class="form-note full">درخواست در پنل مدیریت ثبت می‌شود.</div>
+    </form>
+  </div>
+</div></section>
+
+<section id="faq" style="background:#faf8fd"><div class="wrap">
+  <div class="section-head"><span>سؤالات رایج</span><h2>پاسخ‌های عمومی</h2></div>
+  <div class="faq-grid">
+    <div class="card"><h3>ایمپلنت مناسب چه کسانی است؟</h3><p>پس از معاینه استخوان و لثه مشخص می‌شود.</p></div>
+    <div class="card"><h3>بلیچینگ چه تغییری می‌دهد؟</h3><p>رنگ را روشن‌تر می‌کند؛ نتیجه وابسته به علت تغییررنگ است.</p></div>
+    <div class="card"><h3>خدمات کودکان؟</h3><p>پس از بررسی سن و وضعیت دندان مشخص می‌شود.</p></div>
+    <div class="card"><h3>دندان‌درد شدید؟</h3><p>تورم، تب یا مشکل تنفس نیاز به ارزیابی فوری دارد.</p></div>
+    <div class="card"><h3>مشاوره رایگان؟</h3><p>با کلینیک تماس بگیرید یا فرم را پر کنید.</p></div>
+    <div class="card"><h3>نمونه‌کارها؟</h3><p>در بخش گالری نمایش داده می‌شوند.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="section-head"><span>ارتباط</span><h2>راه‌های ارتباطی و آدرس</h2></div>
+  <div class="contact-grid">
+    <div class="card">
+      <div class="contact-item"><b>آدرس</b><br>تهران، بلوار کشاورز، روبروی بیمارستان ساسان، پلاک ۱۰۰، طبقه اول</div>
+      <div class="contact-item"><b>تلفن</b><br>
+        <a href="tel:09354101315">۰۹۳۵۴۱۰۱۳۱۵</a> · <a href="tel:09106808443">۰۹۱۰۶۸۰۸۴۴۳</a><br>
+        <a href="tel:02188999011">۰۲۱۸۸۹۹۹۰۱۱</a> · <a href="tel:02188967663">۰۲۱۸۸۹۶۷۶۶۳</a>
+      </div>
+      <div class="contact-item"><b>ساعات</b><br>شنبه تا پنجشنبه، ۱۰ صبح تا ۸ شب</div>
+      <div class="contact-item"><b>شبکه‌ها</b><br>
+        <a href="https://www.instagram.com/dandankade.salamat" target="_blank">اینستاگرام</a> ·
+        <a href="https://ble.ir/dandankadesalamat" target="_blank">بله</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>مسیریابی</h3>
+      <div class="map-buttons">
+        <a class="btn soft" href="https://balad.ir/p/5DNDwmUha1Qg9K" target="_blank">بلد</a>
+        <a class="btn soft" href="https://nshn.ir/3bsbvPmSpxONpk" target="_blank">نشان</a>
+        <a class="btn primary" href="https://maps.app.goo.gl/PCw3iysQh53eVj7c9" target="_blank">گوگل مپ</a>
+      </div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+      <h3>نظر بیماران</h3>
+      <div id="reviewList"><p>هنوز نظری ثبت نشده.</p></div>
+      <button class="btn soft" onclick="openReviewModal()">ثبت نظر ★</button>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="cta">
+  <div><h2>یک قدم تا لبخند سالم‌تر</h2><p>برای مشاوره رایگان تماس بگیرید.</p></div>
+  <a class="btn" href="tel:09354101315">تماس</a>
+</div></div></section>
+</main>
+
+<footer><div class="wrap footer-grid">
+  <div><div class="brand"><div class="logo">✦</div><div><b style="color:#fff">دندانکده سلامت</b><small>کلینیک تخصصی</small></div></div>
+  <p>همراه مسیر سلامت و زیبایی لبخند شما.</p></div>
+  <div><h3>دسترسی</h3><div class="footer-links"><a href="#services">خدمات</a><a href="#work">نمونه‌کار</a><a href="#booking">رزرو</a></div></div>
+  <div><h3>ارتباط</h3><div class="footer-links"><a href="tel:02188999011">۰۲۱۸۸۹۹۹۰۱۱</a><a href="https://www.instagram.com/dandankade.salamat" target="_blank">اینستاگرام</a></div></div>
+</div></footer>
+<nav class="bottom"><a href="#home"><b>⌂</b>خانه</a><a href="#services"><b>◇</b>خدمات</a><a href="#booking"><b>▦</b>نوبت</a><a href="#contact"><b>☎</b>تماس</a></nav>
+
+<div class="chat">
+  <div id="chatbox" class="chatbox">
+    <div class="chat-head">دستیار هوشمند <span style="float:left;cursor:pointer" onclick="toggleChat()">×</span><small>۲۴ ساعته</small></div>
+    <div id="chatbody" class="chat-body">
+      <div class="ai-msg">سلام 👋 من دستیار دندانکده هستم. درباره درد، ایمپلنت، کامپوزیت، لمینت، جرم‌گیری، بلیچینگ، عصب‌کشی یا نوبت بپرسید.</div>
+      <div class="quick-row">
+        <button onclick="chatQuick('implant')">ایمپلنت</button>
+        <button onclick="chatQuick('pain')">دندان‌درد</button>
+        <button onclick="chatQuick('composite')">کامپوزیت</button>
+        <button onclick="chatQuick('booking')">مشاوره</button>
+      </div>
+    </div>
+    <div class="chat-input"><input id="chatInput" placeholder="سؤال بنویسید…" onkeydown="if(event.key==='Enter')sendChat()"><button onclick="sendChat()">ارسال</button></div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()">✦</button>
+</div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box"><button class="close" onclick="closeModal()">×</button><h3 id="modalTitle"></h3><p id="modalText" style="line-height:2;color:#6d6478"></p>
+  <a class="btn primary" href="#booking" onclick="closeModal()">درخواست مشاوره</a></div>
+</div>
+</div><!-- site -->
+
+<!-- ADMIN LOGIN -->
+<div id="adminLogin" class="admin-login">
+  <div class="login-card">
+    <div class="login-logo">✦</div>
+    <h2>ورود امن به پنل</h2>
+    <p>دندانکده سلامت · فقط مدیر مجاز</p>
+    <input id="adminPassword" type="password" placeholder="رمز ورود" autocomplete="current-password" onkeydown="if(event.key==='Enter')loginAdmin()">
+    <button class="btn primary" style="width:100%;margin-top:12px" onclick="loginAdmin()">ورود</button>
+    <div id="loginError" class="login-error"></div>
+    <small>برای امنیت واقعی باید احراز هویت سمت سرور پیاده‌سازی شود.</small>
+  </div>
+</div>
+
+<!-- ===================== ADMIN ===================== -->
+<div id="admin" class="admin">
+<div class="admin-shell">
+<aside class="sidebar">
+  <div class="side-brand"><div class="side-logo">✦</div><div><b>دندانکده سلامت</b><small>پنل مدیریت هوشمند</small></div></div>
+  <div class="side-section">کلینیک</div>
+  <div class="side-nav">
+    <button class="active" data-page="dashboard" onclick="adminPage('dashboard')">⌂ داشبورد</button>
+    <button data-page="appointments" onclick="adminPage('appointments')">▦ نوبت‌ها</button>
+    <button data-page="patients" onclick="adminPage('patients')">♙ بیماران</button>
+    <button data-page="crm" onclick="adminPage('crm')">◎ CRM</button>
+    <button data-page="doctors" onclick="adminPage('doctors')">⚕ پزشکان</button>
+    <button data-page="calendar" onclick="adminPage('calendar')">◷ تقویم</button>
+    <button data-page="accounting" onclick="adminPage('accounting')">﷼ حسابداری</button>
+    <button data-page="inventory" onclick="adminPage('inventory')">▤ انبار</button>
+    <button data-page="lab" onclick="adminPage('lab')">◇ لابراتوار</button>
+  </div>
+  <div class="side-section">سایت</div>
+  <div class="side-nav">
+    <button data-page="content" onclick="adminPage('content')">✎ محتوا</button>
+    <button data-page="media" onclick="adminPage('media')">▧ رسانه</button>
+    <button data-page="messages" onclick="adminPage('messages')">✉ پیامک</button>
+    <button data-page="reviews" onclick="adminPage('reviews')">★ نظرات</button>
+    <button data-page="settings" onclick="adminPage('settings')">⚙ تنظیمات</button>
+  </div>
+  <div style="margin-top:16px">
+    <button class="btn outline" style="width:100%;margin-bottom:6px;background:#ffffff0a;color:#fff;border-color:#ffffff22;font-size:11px" onclick="logoutAdmin()">🔒 خروج</button>
+    <button class="btn outline" style="width:100%;background:#ffffff0a;color:#fff;border-color:#ffffff22;font-size:11px" onclick="closeAdmin()">← سایت</button>
+  </div>
+</aside>
+
+<main class="admin-main">
+  <div class="admin-top">
+    <div><h1 id="adminTitle">داشبورد</h1><p id="adminSub">نمای کلی کلینیک</p></div>
+    <div class="top-actions">
+      <button class="btn soft btn-sm" onclick="exportData()">خروجی JSON</button>
+      <button class="btn primary btn-sm" onclick="openForm('patient')">+ پرونده</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <section id="page-dashboard" class="admin-section active">
+    <div class="dash-grid">
+      <div class="kpi"><small>نوبت‌ها</small><b id="kpiAppointments">۰</b><span class="trend" id="kpiAptTrend">—</span></div>
+      <div class="kpi"><small>بیماران</small><b id="kpiPatients">۰</b><span class="trend">فعال</span></div>
+      <div class="kpi"><small>لیدهای جدید</small><b id="kpiLeads">۰</b><span class="trend">از سایت</span></div>
+      <div class="kpi"><small>تراز</small><b id="kpiBalance">۰</b><span class="trend">ریال</span></div>
+    </div>
+    <div class="admin-grid">
+      <div class="panel">
+        <h3>نوبت‌های اخیر <button class="btn soft btn-sm" onclick="openForm('appointment')">+</button></h3>
+        <div id="dashboardAppointments" class="empty-state">خالی</div>
+      </div>
+      <div class="panel">
+        <h3>یادداشت</h3>
+        <div class="sticky-note" contenteditable="true" id="stickyNote" onblur="saveSticky()">یادداشت روزانه...</div>
+      </div>
+    </div>
+    <div class="admin-grid">
+      <div class="panel">
+        <h3>درخواست‌های سایت</h3>
+        <div id="dashboardLeads" class="empty-state">خالی</div>
+      </div>
+      <div class="panel">
+        <h3>فعالیت‌های اخیر</h3>
+        <div id="activityFeed" class="empty-state">هنوز فعالیتی نیست</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPOINTMENTS -->
+  <section id="page-appointments" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <input id="appointmentSearch" oninput="renderAppointments()" placeholder="جستجو...">
+        <select id="aptStatusFilter" onchange="renderAppointments()">
+          <option value="">همه وضعیت‌ها</option>
+          <option>در انتظار</option><option>تأیید شده</option><option>انجام شد</option><option>لغو شده</option>
+        </select>
+        <button class="btn primary btn-sm" onclick="openForm('appointment')">+ نوبت</button>
+      </div>
+      <div id="appointmentsList"></div>
+    </div>
+  </section>
+
+  <!-- PATIENTS -->
+  <section id="page-patients" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <input id="patientSearch" oninput="renderPatients()" placeholder="نام، موبایل، کد...">
+        <button class="btn primary btn-sm" onclick="openForm('patient')">+ پرونده</button>
+        <label class="btn soft btn-sm" style="cursor:pointer">ورود اکسل<input type="file" accept=".xlsx,.xls,.csv" onchange="importPatients(event)" hidden></label>
+        <button class="btn outline btn-sm" onclick="downloadTemplate()">قالب</button>
+      </div>
+      <div class="notice" style="margin-bottom:12px">کلیک روی کارت → جزئیات کامل پرونده. ویرایش و حذف از داخل جزئیات.</div>
+      <div id="patientsList" class="list-cards"></div>
+    </div>
+  </section>
+
+  <!-- CRM -->
+  <section id="page-crm" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <input id="crmSearch" oninput="renderCRM()" placeholder="جستجو...">
+        <div class="filter-chips" id="crmChips">
+          <span class="chip active" data-s="" onclick="setCrmFilter(this,'')">همه</span>
+          <span class="chip" data-s="جدید" onclick="setCrmFilter(this,'جدید')">جدید</span>
+          <span class="chip" data-s="تماس گرفته" onclick="setCrmFilter(this,'تماس گرفته')">تماس</span>
+          <span class="chip" data-s="علاقه‌مند" onclick="setCrmFilter(this,'علاقه‌مند')">علاقه‌مند</span>
+          <span class="chip" data-s="تبدیل‌شده" onclick="setCrmFilter(this,'تبدیل‌شده')">تبدیل</span>
+          <span class="chip" data-s="از دست‌رفته" onclick="setCrmFilter(this,'از دست‌رفته')">از دست‌رفته</span>
+        </div>
+        <button class="btn primary btn-sm" onclick="openForm('crm')">+ تماس</button>
+      </div>
+      <div id="crmList"></div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section id="page-doctors" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn primary btn-sm" onclick="openForm('doctor')">+ پزشک</button>
+      </div>
+      <div id="doctorsList" class="list-cards"></div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="page-calendar" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn soft btn-sm" onclick="changeMonth(-1)">‹ قبل</button>
+        <button class="btn primary btn-sm" id="calTitle">مهر ۱۴۰۴</button>
+        <button class="btn soft btn-sm" onclick="changeMonth(1)">بعد ›</button>
+      </div>
+      <div class="calendar" id="calendar"></div>
+      <div id="calDayDetail" style="margin-top:14px"></div>
+    </div>
+  </section>
+
+  <!-- ACCOUNTING -->
+  <section id="page-accounting" class="admin-section">
+    <div class="dash-grid">
+      <div class="kpi"><small>دریافت</small><b id="incomeTotal">۰</b><span class="trend">ریال</span></div>
+      <div class="kpi"><small>هزینه</small><b id="expenseTotal">۰</b><span class="trend">ریال</span></div>
+      <div class="kpi"><small>مطالبات</small><b id="receivableTotal">۰</b><span class="trend">ریال</span></div>
+      <div class="kpi"><small>تراز</small><b id="balanceTotal">۰</b><span class="trend">ریال</span></div>
+    </div>
+    <div class="panel" style="margin-top:14px">
+      <div class="toolbar">
+        <button class="btn primary btn-sm" onclick="openForm('transaction')">+ تراکنش</button>
+        <button class="btn soft btn-sm" onclick="openForm('receivable')">+ طلب</button>
+      </div>
+      <div id="accountingList"></div>
+    </div>
+  </section>
+
+  <!-- INVENTORY -->
+  <section id="page-inventory" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <input id="inventorySearch" oninput="renderInventory()" placeholder="جستجو کالا...">
+        <button class="btn primary btn-sm" onclick="openForm('inventory')">+ کالا</button>
+      </div>
+      <div id="inventoryList"></div>
+    </div>
+  </section>
+
+  <!-- LAB -->
+  <section id="page-lab" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <input id="labSearch" oninput="renderLab()" placeholder="جستجو...">
+        <button class="btn primary btn-sm" onclick="openForm('lab')">+ سفارش</button>
+      </div>
+      <div id="labList"></div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section id="page-content" class="admin-section">
+    <div class="panel">
+      <h3>ویرایش محتوای سایت</h3>
+      <div class="content-editor">
+        <label>عنوان اصلی<input id="editTitle" value="لبخند شما، امضای زیبایی و سلامت شماست"></label>
+        <label>شعار<input id="editEyebrow" value="لبخند سالم، حس خوب زندگی"></label>
+        <label class="full">معرفی<textarea id="editIntro">در دندانکده، با دانش تخصصی، تجهیزات مدرن و محیطی آرام، مسیر رسیدن به لبخندی سالم و زیبا را برای شما هموار می‌کنیم.</textarea></label>
+        <label>ساعات<input id="editHours" value="شنبه تا پنجشنبه، ۱۰ صبح تا ۸ شب"></label>
+        <label>عنوان CTA<input id="editCta" value="آماده شروع مسیر لبخند سالم هستید؟"></label>
+        <div class="full">
+          <button class="btn primary" onclick="saveContent()">ذخیره و اعمال</button>
+          <button class="btn soft" onclick="resetContent()">بازگردانی</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section id="page-media" class="admin-section">
+    <div class="panel">
+      <h3>رسانه و فایل</h3>
+      <div class="upload-box"><b>فایل اضافه کنید</b><p>عکس · ویدیو · PDF · Excel</p>
+        <input type="file" multiple accept="image/*,video/*,.pdf,.xlsx,.xls,.csv" onchange="handleMedia(event)">
+      </div>
+      <div id="mediaPreview" class="media-admin" style="margin-top:14px"></div>
+    </div>
+  </section>
+
+  <!-- MESSAGES -->
+  <section id="page-messages" class="admin-section">
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn primary btn-sm" onclick="toast('برای ارسال واقعی API پیامکی لازم است','err')">پیامک جدید</button>
+      </div>
+      <div class="empty-state">هنوز پیام ثبت نشده. اتصال پنل پیامکی در نسخه واقعی.</div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="page-reviews" class="admin-section">
+    <div class="panel">
+      <div class="toolbar"><button class="btn soft btn-sm" onclick="renderReviews()">تازه‌سازی</button></div>
+      <div id="adminReviews"></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="page-settings" class="admin-section">
+    <div class="panel">
+      <h3>تنظیمات</h3>
+      <div class="settings-row"><span>یادآوری نوبت</span><span class="switch on" onclick="this.classList.toggle('on')"><i></i></span></div>
+      <div class="settings-row"><span>اعلان لید جدید</span><span class="switch on" onclick="this.classList.toggle('on')"><i></i></span></div>
+      <div class="settings-row"><span>حالت تیره</span><span class="switch" onclick="this.classList.toggle('on')"><i></i></span></div>
+      <div class="settings-row"><span>OTP موبایل</span><span class="switch on" onclick="this.classList.toggle('on')"><i></i></span></div>
+      <button class="btn danger-btn" style="margin-top:14px" onclick="resetAllData()">پاک‌سازی کامل داده‌ها</button>
+      <div class="notice" style="margin-top:12px">در نسخه واقعی: درگاه پرداخت، پیامک، چندکاربره، رمزنگاری و بک‌آپ سرور.</div>
+    </div>
+  </section>
+</main>
+</div>
+</div>
+
+<!-- FORM MODAL -->
+<div id="formModal" class="modal form-modal" onclick="if(event.target===this)closeForm()">
+  <div class="modal-box">
+    <button class="close" onclick="closeForm()">×</button>
+    <h3 id="formTitle">فرم</h3>
+    <div id="formBody"></div>
+  </div>
+</div>
+
+<!-- DETAIL MODAL -->
+<div id="detailModal" class="modal" onclick="if(event.target===this)closeDetail()">
+  <div class="modal-box" style="width:min(560px,100%)">
+    <button class="close" onclick="closeDetail()">×</button>
+    <div id="detailBody"></div>
+  </div>
+</div>
+
+<!-- REVIEW MODAL -->
+<div id="reviewModal" class="modal form-modal" onclick="if(event.target===this)closeReviewModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeReviewModal()">×</button>
+    <h3>ثبت نظر</h3>
+    <div class="field"><label>نام</label><input id="revName"></div>
+    <div class="field"><label>امتیاز</label><select id="revRate"><option>۵</option><option>۴</option><option>۳</option><option>۲</option><option>۱</option></select></div>
+    <div class="field"><label>نظر</label><textarea id="revText"></textarea></div>
+    <div class="form-actions">
+      <button class="btn soft" onclick="closeReviewModal()">انصراف</button>
+      <button class="btn primary" onclick="submitReview()">ثبت</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========== CORE ========== */
+const KEY='dandankade_v3';
+const defaults={
+  requests:[],patients:[],appointments:[],reviews:[],crm:[],
+  transactions:[],inventory:[],lab:[],doctors:[],activity:[],
+  content:{},sticky:'یادداشت روزانه خود را اینجا بنویسید...'
+};
+let db=JSON.parse(localStorage.getItem(KEY)||'null')||structuredClone(defaults);
+if(!db.doctors) db.doctors=[];
+if(!db.activity) db.activity=[];
+function persist(){localStorage.setItem(KEY,JSON.stringify(db))}
+function toast(msg,type=''){
+  const w=document.getElementById('toastWrap');
+  const t=document.createElement('div');
+  t.className='toast '+(type||'');
+  t.textContent=msg;
+  w.appendChild(t);
+  setTimeout(()=>t.remove(),3200);
+}
+function logActivity(text){
+  db.activity.unshift({text,time:new Date().toLocaleString('fa-IR')});
+  if(db.activity.length>40) db.activity=db.activity.slice(0,40);
+  persist();
+}
+function fa(n){return Number(n||0).toLocaleString('fa-IR')}
+function emptyMsg(t){return `<div class="empty-state">${t}</div>`}
+function uid(p){return p+'-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)}
+
+/* Password obfuscated */
+function _v(p){
+  const a=[77,111,98,105,110,56,56,51,49];
+  if(p.length!==a.length) return false;
+  for(let i=0;i<a.length;i++) if(p.charCodeAt(i)!==a[i]) return false;
+  return true;
+}
+
+/* Auth */
+function openAdmin(){
+  if(sessionStorage.getItem('dk_auth')==='1'){enterAdmin();return}
+  document.getElementById('adminLogin').classList.add('open');
+  setTimeout(()=>document.getElementById('adminPassword').focus(),60);
+}
+function enterAdmin(){
+  document.getElementById('adminLogin').classList.remove('open');
+  document.getElementById('site').classList.add('hidden');
+  document.getElementById('admin').classList.add('active');
+  renderAll();adminPage('dashboard');
+}
+function loginAdmin(){
+  const val=document.getElementById('adminPassword').value;
+  if(_v(val)){
+    sessionStorage.setItem('dk_auth','1');
+    document.getElementById('loginError').textContent='';
+    document.getElementById('adminPassword').value='';
+    enterAdmin();toast('ورود موفق','ok');
+  }else{
+    document.getElementById('loginError').textContent='رمز اشتباه است';
+    document.getElementById('adminPassword').select();
+  }
+}
+function logoutAdmin(){
+  sessionStorage.removeItem('dk_auth');
+  document.getElementById('admin').classList.remove('active');
+  document.getElementById('site').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function closeAdmin(){logoutAdmin()}
+
+const titles={
+  dashboard:'داشبورد',appointments:'نوبت‌ها',patients:'بیماران',crm:'CRM',
+  doctors:'پزشکان',calendar:'تقویم',accounting:'حسابداری',inventory:'انبار',
+  lab:'لابراتوار',content:'محتوا',media:'رسانه',messages:'پیامک',
+  reviews:'نظرات',settings:'تنظیمات'
+};
+function adminPage(page){
+  document.querySelectorAll('.admin-section').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.side-nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));
+  document.getElementById('adminTitle').textContent=titles[page]||'پنل';
+  document.getElementById('adminSub').textContent='مدیریت '+titles[page];
+  const map={calendar:buildCalendar,patients:renderPatients,reviews:renderReviews,dashboard:renderDashboard,
+    appointments:renderAppointments,crm:renderCRM,accounting:renderAccounting,inventory:renderInventory,
+    lab:renderLab,doctors:renderDoctors};
+  if(map[page]) map[page]();
+}
+
+function toggleMoreMenu(e){e.stopPropagation();document.getElementById('moreMenu').classList.toggle('open')}
+function closeMoreMenu(){document.getElementById('moreMenu').classList.remove('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.more-wrap'))closeMoreMenu()});
+function toggleMobile(){document.querySelector('.links').classList.toggle('mobile-open')}
+window.addEventListener('resize',()=>{if(window.innerWidth>760)document.querySelector('.links').classList.remove('mobile-open')});
+
+function showService(t,x){document.getElementById('modalTitle').textContent=t;document.getElementById('modalText').textContent=x;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+
+/* ========== CHAT AI ========== */
+function toggleChat(){document.getElementById('chatbox').classList.toggle('open')}
+function addChat(role,text){
+  const b=document.getElementById('chatbody');
+  const d=document.createElement('div');
+  d.className=role==='user'?'user-msg':'ai-msg';
+  d.innerHTML=text;b.appendChild(d);b.scrollTop=b.scrollHeight;
+}
+function chatQuick(type){
+  const m={implant:'درباره ایمپلنت',pain:'دندان‌درد دارم',composite:'کامپوزیت چطوره؟',booking:'می‌خواهم نوبت بگیرم'};
+  document.getElementById('chatInput').value=m[type]||'';sendChat();
+}
+function sendChat(){
+  const input=document.getElementById('chatInput');
+  const q=input.value.trim();if(!q)return;
+  addChat('user',q);input.value='';
+  setTimeout(()=>addChat('ai',generateAIResponse(q)),300+Math.random()*350);
+}
+function generateAIResponse(q){
+  const t=q.toLowerCase().replace(/ي/g,'ی').replace(/ك/g,'ک');
+  const phones='۰۹۳۵۴۱۰۱۳۱۵ · ۰۹۱۰۶۸۰۸۴۴۳ · ۰۲۱۸۸۹۹۹۰۱۱';
+  if(/تورم|تب|بلع|تنفس|خونریزی شدید/.test(t)) return '⚠️ علائم هشدار: فوراً به مرکز درمانی مراجعه کنید.';
+  if(/درد|دندان.?درد|دندون|وجع|سوزش|تیر.?کش/.test(t)) return 'دندان‌درد می‌تواند از پوسیدگی، التهاب عصب، عفونت یا مشکل لثه باشد.<br>درد شبانه یا ضربان‌دار احتمال درگیری عصب دارد.<br>برای تشخیص معاینه لازم است. تماس: '+phones;
+  if(/ایمپلنت|implant|کاشت/.test(t)) return '<b>ایمپلنت</b><br>۱. معاینه + CBCT<br>۲. بررسی استخوان<br>۳. پایه تیتانیومی<br>۴. ترمیم ۳–۶ ماه<br>۵. روکش<br>مشاوره رایگان پیشنهاد می‌شود.';
+  if(/کامپوزیت|composite/.test(t)) return 'کامپوزیت برای اصلاح رنگ، فرم و فاصله. معمولاً یک جلسه. دوام به مراقبت بستگی دارد.';
+  if(/لمینت|لامینت|veneer/.test(t)) return 'لمینت سرامیکی پوسته‌ای نازک روی سطح دندان. نتیجه طبیعی و بادوام. مناسب‌بودن در مشاوره بررسی می‌شود.';
+  if(/سفید|بلیچ|whitening/.test(t)) return 'بلیچینگ حرفه‌ای رنگ را روشن‌تر می‌کند. حساسیت موقت ممکن است. پوسیدگی قبل از آن بررسی می‌شود.';
+  if(/جرم|جرم.?گیری/.test(t)) return 'جرم‌گیری رسوبات سخت را برمی‌دارد و به سلامت لثه کمک می‌کند. حساسیت موقت طبیعی است.';
+  if(/عصب|ریشه|روت/.test(t)) return 'عصب‌کشی وقتی پالپ آسیب دیده باشد. پاک‌سازی + پر کردن ریشه. اغلب نیاز به روکش بعدی دارد.';
+  if(/کودک|بچه|طفل/.test(t)) return 'در کودکان سن، همکاری و وضعیت دندان‌های شیری مهم است. ارزیابی زودهنگام توصیه می‌شود.';
+  if(/هزینه|قیمت|تعرفه|چقدر/.test(t)) return 'هزینه بدون معاینه دقیق نیست. عوامل: نوع درمان، تعداد، مواد. تماس: '+phones;
+  if(/نوبت|مشاوره|وقت|رزرو|تماس|آدرس/.test(t)) return '📞 '+phones+'<br>ساعات: شنبه تا پنجشنبه ۱۰–۲۰<br>آدرس: بلوار کشاورز، روبروی بیمارستان ساسان، پلاک ۱۰۰<br>یا فرم رزرو سایت را پر کنید.';
+  if(/سلام|درود|خوبی/.test(t)&&t.length<20) return 'سلام! 😊 چطور می‌تونم کمکتون کنم؟';
+  if(/ممنون|مرسی|تشکر/.test(t)) return 'خواهش می‌کنم 🙏 سؤال دیگری بود در خدمتم.';
+  return 'برای پاسخ دقیق‌تر درباره علائم، درمان (ایمپلنت، کامپوزیت، لمینت، بلیچینگ، جرم‌گیری، عصب‌کشی) یا نوبت بپرسید.<br>تشخیص قطعی فقط با معاینه امکان‌پذیر است.';
+}
+
+/* Booking */
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(e.target).entries());
+  db.requests.push({...d,id:uid('L'),created:new Date().toLocaleString('fa-IR'),status:'جدید'});
+  logActivity('درخواست جدید از سایت: '+d.name);
+  persist();
+  document.getElementById('formMessage').textContent='✅ درخواست ثبت شد. به زودی تماس می‌گیریم.';
+  e.target.reset();toast('درخواست ثبت شد','ok');
+});
+
+/* ========== FORMS ========== */
+let formType=null, editId=null;
+function openForm(type,id=null){
+  formType=type;editId=id;
+  const item=id?findItem(type,id):null;
+  const title=document.getElementById('formTitle');
+  const body=document.getElementById('formBody');
+  let h='';
+
+  if(type==='patient'){
+    title.textContent=id?'ویرایش پرونده':'پرونده جدید';
+    h=`
+    <div class="field"><label>نام *</label><input id="f_name" value="${esc(item?.name||'')}"></div>
+    <div class="field"><label>موبایل</label><input id="f_phone" value="${esc(item?.phone||'')}" placeholder="09xxxxxxxxx"></div>
+    <div class="field"><label>کد ملی</label><input id="f_nid" value="${esc(item?.nid||'')}"></div>
+    <div class="field"><label>تاریخ تولد</label><input id="f_birth" value="${esc(item?.birth||'')}" placeholder="۱۳۷۰/۰۱/۰۱"></div>
+    <div class="field"><label>موضوع/درمان</label><input id="f_topic" value="${esc(item?.topic||'')}"></div>
+    <div class="field"><label>حساسیت‌ها</label><input id="f_allergy" value="${esc(item?.allergy||'')}"></div>
+    <div class="field"><label>سابقه پزشکی</label><textarea id="f_history">${esc(item?.history||'')}</textarea></div>
+    <div class="field"><label>یادداشت</label><textarea id="f_note">${esc(item?.note||'')}</textarea></div>
+    <div class="form-actions">
+      <button class="btn soft" onclick="closeForm()">انصراف</button>
+      <button class="btn primary" onclick="submitForm()">ذخیره</button>
+    </div>`;
+  }
+  else if(type==='appointment'){
+    title.textContent=id?'ویرایش نوبت':'نوبت جدید';
+    const docs=db.doctors.map(d=>`<option ${item?.doctor===d.name?'selected':''}>${d.name}</option>`).join('');
+    h=`
+    <div class="field"><label>بیمار *</label><input id="f_patient" value="${esc(item?.patient||'')}"></div>
+    <div class="field"><label>تاریخ</label><input id="f_date" value="${esc(item?.date||'')}" placeholder="۱۴۰۴/۰۷/۱۵"></div>
+    <div class="field"><label>ساعت</label><input id="f_time" value="${esc(item?.time||'')}" placeholder="۱۶:۳۰"></div>
+    <div class="field"><label>درمان</label><input id="f_treatment" value="${esc(item?.treatment||'')}"></div>
+    <div class="field"><label>پزشک</label><select id="f_doctor"><option value="">—</option>${docs}</select></div>
+    <div class="field"><label>وضعیت</label>
+      <select id="f_status">
+        <option ${item?.status==='در انتظار'?'selected':''}>در انتظار</option>
+        <option ${item?.status==='تأیید شده'?'selected':''}>تأیید شده</option>
+        <option ${item?.status==='انجام شد'?'selected':''}>انجام شد</option>
+        <option ${item?.status==='لغو شده'?'selected':''}>لغو شده</option>
+      </select>
+    </div>
+    <div class="form-actions">
+      <button class="btn soft" onclick="closeForm()">انصراف</button>
+      <button class="btn primary" onclick="submitForm()">ذخیره</button>
+    </div>`;
+  }
+  else if(type==='crm'){
+    title.textContent=id?'ویرایش لید':'ثبت تماس';
+    h=`
+    <div class="field"><label>نام *</label><input id="f_name" value="${esc(item?.name||'')}"></div>
+    <div class="field"><label>موبایل</label><input id="f_phone" value="${esc(item?.phone||'')}"></div>
+    <div class="field"><label>موضوع</label><input id="f_topic" value="${esc(item?.topic||'')}"></div>
+    <div class="field"><label>اقدام بعدی</label><input id="f_next" value="${esc(item?.next||'')}"></div>
+    <div class="field"><label>وضعیت</label>
+      <select id="f_status">
+        <option>جدید</option><option>تماس گرفته</option><option>علاقه‌مند</option>
+        <option>تبدیل‌شده</option><option>از دست‌رفته</option>
+      </select>
+    </div>
+    <div class="field"><label>یادداشت</label><textarea id="f_note">${esc(item?.note||'')}</textarea></div>
+    <div class="form-actions">
+      <button class="btn soft" onclick="closeForm()">انصراف</button>
+      <button class="btn primary" onclick="submitForm()">ذخیره</button>
+    </div>`;
+    setTimeout(()=>{if(item)document.getElementById('f_status').value=item.status||'جدید'},50);
+  }
+  else if(type==='doctor'){
+    title.textContent=id?'ویرایش پزشک':'پزشک جدید';
+    h=`
+    <div class="field"><label>نام *</label><input id="f_name" value="${esc(item?.name||'')}"></div>
+    <div class="field"><label>تخصص</label><input id="f_spec" value="${esc(item?.spec||'')}"></div>
+    <div class="field"><label>شماره نظام پزشکی</label><input id="f_code" value="${esc(item?.code||'')}"></div>
+    <div class="field"><label>خدمات</label><input id="f_services" value="${esc(item?.services||'')}" placeholder="ایمپلنت، کامپوزیت، ..."></div>
+    <div class="field"><label>سوابق</label><textarea id="f_bio">${esc(item?.bio||'')}</textarea></div>
+    <div class="form-actions">
+      <button class="btn soft" onclick="closeForm()">انصراف</button>
+      <button class="btn primary" onclick="submitForm()">ذخیره</button>
+    </div>`;
+  }
+  else if(type==='transaction'){
+    title.textContent='ثبت تراکنش';
+    h=`
+    <div class="field"><label>نوع</label><select id="f_type"><option>دریافت</option><option>هزینه</option></select></div>
+    <div class="field"><label>مبلغ (ریال) *</label><input id="f_amount" type="number"></div>
+    <div class="field"><label>شرح</label><input id="f_desc"></div>
+    <div class="form-actions"><button class="btn soft" onclick="closeForm()">انصراف</button><button class="btn primary" onclick="submitForm()">ثبت</button></div>`;
+  }
+  else if(type==='receivable'){
+    title.textContent='ثبت طلب';
+    h=`
+    <div class="field"><label>طرف حساب *</label><input id="f_name"></div>
+    <div class="field"><label>مبلغ *</label><input id="f_amount" type="number"></div>
+    <div class="field"><label>شرح</label><input id="f_desc"></div>
+    <div class="form-actions"><button class="btn soft" onclick="closeForm()">انصراف</button><button class="btn primary" onclick="submitForm()">ثبت</button></div>`;
+  }
+  else if(type==='inventory'){
+    title.textContent=id?'ویرایش کالا':'کالای جدید';
+    h=`
+    <div class="field"><label>نام *</label><input id="f_name" value="${esc(item?.name||'')}"></div>
+    <div class="field"><label>دسته</label><input id="f_category" value="${esc(item?.category||'')}"></div>
+    <div class="field"><label>موجودی</label><input id="f_qty" type="number" value="${item?.qty??0}"></div>
+    <div class="field"><label>حداقل</label><input id="f_min" type="number" value="${item?.min??0}"></div>
+    <div class="form-actions"><button class="btn soft" onclick="closeForm()">انصراف</button><button class="btn primary" onclick="submitForm()">ذخیره</button></div>`;
+  }
+  else if(type==='lab'){
+    title.textContent=id?'ویرایش سفارش':'سفارش لابراتوار';
+    h=`
+    <div class="field"><label>بیمار *</label><input id="f_patient" value="${esc(item?.patient||'')}"></div>
+    <div class="field"><label>نوع کار</label><input id="f_type" value="${esc(item?.type||'')}"></div>
+    <div class="field"><label>لابراتوار</label><input id="f_lab" value="${esc(item?.lab||'')}"></div>
+    <div class="field"><label>تاریخ تحویل</label><input id="f_due" value="${esc(item?.due||'')}"></div>
+    <div class="field"><label>وضعیت</label>
+      <select id="f_status"><option>جدید</option><option>در حال ساخت</option><option>آماده</option><option>تحویل‌شده</option></select>
+    </div>
+    <div class="form-actions"><button class="btn soft" onclick="closeForm()">انصراف</button><button class="btn primary" onclick="submitForm()">ذخیره</button></div>`;
+    setTimeout(()=>{if(item)document.getElementById('f_status').value=item.status||'جدید'},50);
+  }
+
+  body.innerHTML=h;
+  document.getElementById('formModal').classList.add('open');
+}
+function closeForm(){document.getElementById('formModal').classList.remove('open');formType=null;editId=null}
+function esc(s){return String(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function findItem(type,id){
+  const map={patient:db.patients,appointment:db.appointments,crm:db.crm,doctor:db.doctors,inventory:db.inventory,lab:db.lab};
+  return (map[type]||[]).find(x=>x.id===id);
+}
+
+function submitForm(){
+  if(formType==='patient'){
+    const name=document.getElementById('f_name').value.trim();
+    if(!name) return toast('نام الزامی است','err');
+    const data={name,phone:val('f_phone'),nid:val('f_nid'),birth:val('f_birth'),topic:val('f_topic')||'مشاوره',
+      allergy:val('f_allergy'),history:val('f_history'),note:val('f_note'),status:'فعال'};
+    if(editId){Object.assign(findItem('patient',editId),data);logActivity('ویرایش پرونده: '+name)}
+    else{data.id=uid('P');db.patients.push(data);logActivity('پرونده جدید: '+name)}
+    persist();renderPatients();renderDashboard();toast('ذخیره شد','ok');
+  }
+  else if(formType==='appointment'){
+    const patient=val('f_patient');if(!patient) return toast('نام بیمار الزامی','err');
+    const data={patient,date:val('f_date'),time:val('f_time'),treatment:val('f_treatment'),
+      doctor:val('f_doctor'),status:val('f_status')||'در انتظار'};
+    if(editId){Object.assign(findItem('appointment',editId),data);logActivity('ویرایش نوبت: '+patient)}
+    else{data.id=uid('A');db.appointments.push(data);logActivity('نوبت جدید: '+patient)}
+    persist();renderAppointments();renderDashboard();toast('نوبت ذخیره شد','ok');
+  }
+  else if(formType==='crm'){
+    const name=val('f_name');if(!name) return toast('نام الزامی','err');
+    const data={name,phone:val('f_phone'),topic:val('f_topic'),next:val('f_next'),status:val('f_status')||'جدید',note:val('f_note')};
+    if(editId){Object.assign(findItem('crm',editId),data)}
+    else{data.id=uid('C');db.crm.push(data);logActivity('لید جدید: '+name)}
+    persist();renderCRM();toast('ذخیره شد','ok');
+  }
+  else if(formType==='doctor'){
+    const name=val('f_name');if(!name) return toast('نام الزامی','err');
+    const data={name,spec:val('f_spec'),code:val('f_code'),services:val('f_services'),bio:val('f_bio')};
+    if(editId){Object.assign(findItem('doctor',editId),data)}
+    else{data.id=uid('D');db.doctors.push(data);logActivity('پزشک جدید: '+name)}
+    persist();renderDoctors();toast('ذخیره شد','ok');
+  }
+  else if(formType==='transaction'){
+    const amount=Number(val('f_amount'));if(!amount) return toast('مبلغ الزامی','err');
+    db.transactions.push({id:uid('T'),date:new Date().toLocaleDateString('fa-IR'),type:val('f_type'),amount,desc:val('f_desc')});
+    logActivity('تراکنش: '+val('f_type')+' '+fa(amount));
+    persist();renderAccounting();renderDashboard();toast('ثبت شد','ok');
+  }
+  else if(formType==='receivable'){
+    const name=val('f_name'),amount=Number(val('f_amount'));
+    if(!name||!amount) return toast('نام و مبلغ الزامی','err');
+    db.transactions.push({id:uid('R'),date:new Date().toLocaleDateString('fa-IR'),type:'طلب',amount,desc:name+' · '+val('f_desc')});
+    persist();renderAccounting();renderDashboard();toast('طلب ثبت شد','ok');
+  }
+  else if(formType==='inventory'){
+    const name=val('f_name');if(!name) return toast('نام الزامی','err');
+    const data={name,category:val('f_category'),qty:Number(val('f_qty'))||0,min:Number(val('f_min'))||0};
+    if(editId){Object.assign(findItem('inventory',editId),data)}
+    else{data.id=uid('I');db.inventory.push(data)}
+    persist();renderInventory();toast('ذخیره شد','ok');
+  }
+  else if(formType==='lab'){
+    const patient=val('f_patient');if(!patient) return toast('بیمار الزامی','err');
+    const data={patient,type:val('f_type'),lab:val('f_lab'),due:val('f_due'),status:val('f_status')||'جدید'};
+    if(editId){Object.assign(findItem('lab',editId),data)}
+    else{data.id=uid('LAB');db.lab.push(data);logActivity('سفارش لاب: '+patient)}
+    persist();renderLab();toast('ذخیره شد','ok');
+  }
+  closeForm();
+}
+function val(id){const e=document.getElementById(id);return e?e.value.trim():''}
+
+/* ========== DELETE ========== */
+function delItem(type,id){
+  if(!confirm('حذف شود؟')) return;
+  const map={patient:'patients',appointment:'appointments',crm:'crm',doctor:'doctors',inventory:'inventory',lab:'lab',review:'reviews'};
+  const key=map[type];
+  if(!key) return;
+  db[key]=db[key].filter(x=>x.id!==id);
+  if(type==='review') db.reviews=db.reviews.filter((_,i)=>i!==id); // reviews use index sometimes
+  logActivity('حذف '+type);
+  persist();renderAll();toast('حذف شد','ok');
+  closeDetail();
+}
+
+/* ========== DETAIL ========== */
+function openPatientDetail(id){
+  const p=findItem('patient',id);if(!p) return;
+  const apts=db.appointments.filter(a=>a.patient===p.name);
+  document.getElementById('detailBody').innerHTML=`
+    <h3 style="margin:0 0 14px">${p.name}</h3>
+    <div class="detail-grid">
+      <div class="detail-item"><b>کد پرونده</b><span>${p.id}</span></div>
+      <div class="detail-item"><b>موبایل</b><span>${p.phone||'—'}</span></div>
+      <div class="detail-item"><b>کد ملی</b><span>${p.nid||'—'}</span></div>
+      <div class="detail-item"><b>تاریخ تولد</b><span>${p.birth||'—'}</span></div>
+      <div class="detail-item"><b>درمان</b><span>${p.topic||'—'}</span></div>
+      <div class="detail-item"><b>وضعیت</b><span class="badge green">${p.status}</span></div>
+    </div>
+    <div style="margin-top:12px">
+      <div class="detail-item"><b>حساسیت‌ها</b><span>${p.allergy||'—'}</span></div>
+      <div class="detail-item" style="margin-top:8px"><b>سابقه پزشکی</b><span>${p.history||'—'}</span></div>
+      <div class="detail-item" style="margin-top:8px"><b>یادداشت</b><span>${p.note||'—'}</span></div>
+    </div>
+    <h4 style="margin:16px 0 8px;font-size:13px">نوبت‌های این بیمار (${apts.length})</h4>
+    ${apts.length?apts.map(a=>`<div class="list-card" style="margin-bottom:6px"><b>${a.date||''} ${a.time||''}</b><small>${a.treatment||'—'} · ${a.status}</small></div>`).join(''):'<p style="color:#999;font-size:12px">نوبتی ندارد</p>'}
+    <div class="form-actions" style="margin-top:16px">
+      <button class="btn soft btn-sm" onclick="openForm('patient','${p.id}');closeDetail()">ویرایش</button>
+      <button class="btn soft btn-sm" onclick="openForm('appointment');setTimeout(()=>{const e=document.getElementById('f_patient');if(e)e.value='${esc(p.name)}'},100);closeDetail()">+ نوبت</button>
+      <button class="btn danger-btn btn-sm" onclick="delItem('patient','${p.id}')">حذف</button>
+    </div>`;
+  document.getElementById('detailModal').classList.add('open');
+}
+function closeDetail(){document.getElementById('detailModal').classList.remove('open')}
+
+/* ========== RENDER ========== */
+function renderDashboard(){
+  document.getElementById('kpiAppointments').textContent=fa(db.appointments.length);
+  document.getElementById('kpiPatients').textContent=fa(db.patients.length);
+  document.getElementById('kpiLeads').textContent=fa(db.requests.length);
+  const bal=db.transactions.reduce((a,x)=>a+(x.type==='دریافت'?Number(x.amount||0):(x.type==='هزینه'?-Number(x.amount||0):0)),0);
+  document.getElementById('kpiBalance').textContent=fa(bal);
+  const pending=db.appointments.filter(a=>a.status==='در انتظار'||a.status==='تأیید شده').length;
+  document.getElementById('kpiAptTrend').textContent=pending?pending+' فعال':'—';
+
+  const da=document.getElementById('dashboardAppointments');
+  da.innerHTML=db.appointments.length
+    ?db.appointments.slice(-5).reverse().map(x=>`<div class="list-card"><b>${x.time||'—'} · ${x.patient}</b><small>${x.date||''} · ${x.treatment||'—'} · <span class="badge yellow">${x.status}</span></small></div>`).join('')
+    :emptyMsg('نوبتی نیست');
+
+  const dl=document.getElementById('dashboardLeads');
+  dl.innerHTML=db.requests.length
+    ?db.requests.slice(-5).reverse().map(x=>`<div class="list-card"><b>${x.name}</b><small>${x.phone} · ${x.topic} · ${x.created}</small></div>`).join('')
+    :emptyMsg('درخواستی نیست');
+
+  const af=document.getElementById('activityFeed');
+  af.innerHTML=db.activity.length
+    ?db.activity.slice(0,8).map(a=>`<div class="activity-item"><div class="dot"></div><div><b>${a.text}</b><br><small style="color:#999">${a.time}</small></div></div>`).join('')
+    :emptyMsg('فعالیتی نیست');
+
+  if(db.sticky) document.getElementById('stickyNote').textContent=db.sticky;
+}
+function saveSticky(){db.sticky=document.getElementById('stickyNote').textContent;persist()}
+
+function renderPatients(){
+  const el=document.getElementById('patientsList');if(!el)return;
+  const q=(document.getElementById('patientSearch')?.value||'').toLowerCase();
+  const arr=db.patients.filter(p=>(p.name+p.phone+p.id+p.topic).toLowerCase().includes(q));
+  el.innerHTML=arr.length?arr.map(p=>`
+    <div class="list-card" style="cursor:pointer" onclick="openPatientDetail('${p.id}')">
+      <b>${p.name}</b>
+      <small>کد: ${p.id}</small>
+      <small>📱 ${p.phone||'—'}</small>
+      <small>درمان: ${p.topic||'—'}</small>
+      <div class="card-actions">
+        <span class="badge green">${p.status}</span>
+        <button class="btn soft btn-sm" onclick="event.stopPropagation();openForm('patient','${p.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="event.stopPropagation();delItem('patient','${p.id}')">حذف</button>
+      </div>
+    </div>`).join(''):emptyMsg('پرونده‌ای نیست. + پرونده بزنید.');
+}
+
+function statusBadge(s){
+  const c={ 'در انتظار':'yellow','تأیید شده':'blue','انجام شد':'green','لغو شده':'red',
+    'جدید':'purple','تماس گرفته':'blue','علاقه‌مند':'yellow','تبدیل‌شده':'green','از دست‌رفته':'gray',
+    'در حال ساخت':'yellow','آماده':'blue','تحویل‌شده':'green'};
+  return `<span class="badge ${c[s]||'purple'}">${s}</span>`;
+}
+
+function renderAppointments(){
+  const el=document.getElementById('appointmentsList');if(!el)return;
+  const q=(document.getElementById('appointmentSearch')?.value||'').toLowerCase();
+  const sf=document.getElementById('aptStatusFilter')?.value||'';
+  let a=db.appointments.filter(x=>(x.patient+x.date+x.time+x.treatment+x.doctor).toLowerCase().includes(q));
+  if(sf) a=a.filter(x=>x.status===sf);
+  el.innerHTML=a.length?`<div class="table-wrap"><table class="table">
+    <thead><tr><th>تاریخ</th><th>ساعت</th><th>بیمار</th><th>درمان</th><th>پزشک</th><th>وضعیت</th><th></th></tr></thead>
+    <tbody>${a.map(x=>`<tr>
+      <td>${x.date||'—'}</td><td>${x.time||'—'}</td><td>${x.patient}</td>
+      <td>${x.treatment||'—'}</td><td>${x.doctor||'—'}</td>
+      <td>${statusBadge(x.status)}</td>
+      <td>
+        <button class="btn soft btn-sm" onclick="openForm('appointment','${x.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="delItem('appointment','${x.id}')">حذف</button>
+      </td>
+    </tr>`).join('')}</tbody></table></div>`:emptyMsg('نوبتی نیست.');
+}
+
+let crmFilter='';
+function setCrmFilter(el,s){
+  crmFilter=s;
+  document.querySelectorAll('#crmChips .chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  renderCRM();
+}
+function renderCRM(){
+  const el=document.getElementById('crmList');if(!el)return;
+  const q=(document.getElementById('crmSearch')?.value||'').toLowerCase();
+  let a=db.crm.filter(x=>(x.name+x.phone+x.topic+x.next).toLowerCase().includes(q));
+  if(crmFilter) a=a.filter(x=>x.status===crmFilter);
+  el.innerHTML=a.length?`<div class="table-wrap"><table class="table">
+    <thead><tr><th>نام</th><th>شماره</th><th>موضوع</th><th>وضعیت</th><th>اقدام</th><th></th></tr></thead>
+    <tbody>${a.map(x=>`<tr>
+      <td>${x.name}</td><td>${x.phone||'—'}</td><td>${x.topic||'—'}</td>
+      <td>${statusBadge(x.status)}</td><td>${x.next||'—'}</td>
+      <td>
+        <button class="btn soft btn-sm" onclick="openForm('crm','${x.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="delItem('crm','${x.id}')">حذف</button>
+      </td>
+    </tr>`).join('')}</tbody></table></div>`:emptyMsg('لیدی نیست.');
+}
+
+function renderDoctors(){
+  const el=document.getElementById('doctorsList');if(!el)return;
+  el.innerHTML=db.doctors.length?db.doctors.map(d=>`
+    <div class="list-card">
+      <b>⚕ ${d.name}</b>
+      <small>${d.spec||'—'}</small>
+      <small>نظام: ${d.code||'—'}</small>
+      <small>${d.services||''}</small>
+      <div class="card-actions">
+        <button class="btn soft btn-sm" onclick="openForm('doctor','${d.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="delItem('doctor','${d.id}')">حذف</button>
+      </div>
+    </div>`).join(''):emptyMsg('پزشکی ثبت نشده. + پزشک بزنید.');
+}
+
+function renderAccounting(){
+  const income=db.transactions.filter(x=>x.type==='دریافت').reduce((a,x)=>a+Number(x.amount||0),0);
+  const expense=db.transactions.filter(x=>x.type==='هزینه').reduce((a,x)=>a+Number(x.amount||0),0);
+  const receivable=db.transactions.filter(x=>x.type==='طلب').reduce((a,x)=>a+Number(x.amount||0),0);
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=fa(v)};
+  set('incomeTotal',income);set('expenseTotal',expense);set('receivableTotal',receivable);set('balanceTotal',income-expense);
+  const el=document.getElementById('accountingList');if(!el)return;
+  el.innerHTML=db.transactions.length?`<div class="table-wrap"><table class="table">
+    <thead><tr><th>تاریخ</th><th>شرح</th><th>نوع</th><th>مبلغ</th></tr></thead>
+    <tbody>${db.transactions.map(x=>`<tr><td>${x.date}</td><td>${x.desc||'—'}</td><td>${x.type}</td><td>${fa(x.amount)}</td></tr>`).join('')}</tbody>
+  </table></div>`:emptyMsg('تراکنشی نیست.');
+}
+
+function renderInventory(){
+  const el=document.getElementById('inventoryList');if(!el)return;
+  const q=(document.getElementById('inventorySearch')?.value||'').toLowerCase();
+  const a=db.inventory.filter(x=>(x.name+x.category).toLowerCase().includes(q));
+  el.innerHTML=a.length?`<div class="table-wrap"><table class="table">
+    <thead><tr><th>کالا</th><th>دسته</th><th>موجودی</th><th>حداقل</th><th>وضعیت</th><th></th></tr></thead>
+    <tbody>${a.map(x=>`<tr>
+      <td>${x.name}</td><td>${x.category||'—'}</td><td>${fa(x.qty)}</td><td>${fa(x.min)}</td>
+      <td><span class="badge ${x.qty<=x.min?'red':'green'}">${x.qty<=x.min?'کمبود':'مناسب'}</span></td>
+      <td>
+        <button class="btn soft btn-sm" onclick="openForm('inventory','${x.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="delItem('inventory','${x.id}')">حذف</button>
+      </td>
+    </tr>`).join('')}</tbody></table></div>`:emptyMsg('انبار خالی است.');
+}
+
+function renderLab(){
+  const el=document.getElementById('labList');if(!el)return;
+  const q=(document.getElementById('labSearch')?.value||'').toLowerCase();
+  const a=db.lab.filter(x=>(x.patient+x.type+x.lab+x.due).toLowerCase().includes(q));
+  el.innerHTML=a.length?`<div class="table-wrap"><table class="table">
+    <thead><tr><th>شماره</th><th>بیمار</th><th>نوع</th><th>لاب</th><th>تحویل</th><th>وضعیت</th><th></th></tr></thead>
+    <tbody>${a.map(x=>`<tr>
+      <td>${x.id}</td><td>${x.patient}</td><td>${x.type||'—'}</td><td>${x.lab||'—'}</td><td>${x.due||'—'}</td>
+      <td>${statusBadge(x.status)}</td>
+      <td>
+        <button class="btn soft btn-sm" onclick="openForm('lab','${x.id}')">ویرایش</button>
+        <button class="btn danger-btn btn-sm" onclick="delItem('lab','${x.id}')">حذف</button>
+      </td>
+    </tr>`).join('')}</tbody></table></div>`:emptyMsg('سفارشی نیست.');
+}
+
+/* Calendar */
+let calOffset=0;
+const monthNames=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+function buildCalendar(){
+  const el=document.getElementById('calendar');if(!el)return;
+  const names=['ش','ی','د','س','چ','پ','ج'];
+  let h=names.map(n=>`<div class="day" style="background:#eee6f8;font-weight:800;min-height:auto;padding:6px">${n}</div>`).join('');
+  const today=10;
+  for(let i=1;i<=30;i++){
+    const dayApts=db.appointments.filter(a=>a.date&&a.date.includes('/'+String(i).padStart(2,'0'))||a.date&&a.date.endsWith('/'+i)||a.date&&a.date.includes(String(i)));
+    const has=dayApts.length>0;
+    h+=`<div class="day ${i===today?'today':''} ${has?'has-apt':''}" onclick="showDayApts(${i})">
+      <b>${i}</b><br><small>${has?dayApts.length+' نوبت':''}</small>
+    </div>`;
+  }
+  el.innerHTML=h;
+  const m=(6+calOffset+12)%12;
+  document.getElementById('calTitle').textContent=monthNames[m]+' ۱۴۰۴';
+}
+function changeMonth(d){calOffset+=d;buildCalendar()}
+function showDayApts(day){
+  const apts=db.appointments.filter(a=>a.date&&(a.date.includes(String(day))));
+  const el=document.getElementById('calDayDetail');
+  el.innerHTML=apts.length
+    ?`<h4 style="font-size:13px">نوبت‌های روز ${day}</h4>`+apts.map(a=>`<div class="list-card" style="margin-bottom:6px"><b>${a.time||''} · ${a.patient}</b><small>${a.treatment||'—'} · ${statusBadge(a.status)}</small></div>`).join('')
+    :`<p style="color:#999;font-size:12px">نوبتی برای روز ${day} نیست.</p>`;
+}
+
+/* Content */
+function saveContent(){
+  const c={title:val('editTitle'),eyebrow:val('editEyebrow'),intro:val('editIntro'),hours:val('editHours'),cta:val('editCta')};
+  db.content=c;persist();
+  const te=document.getElementById('heroTitle');
+  if(te){const p=c.title.split('،');te.innerHTML=p[0]+(p[1]?'،<br><em>'+p.slice(1).join('،')+'</em>':'')}
+  if(document.getElementById('heroEyebrow')) document.getElementById('heroEyebrow').textContent='✧ '+c.eyebrow;
+  if(document.getElementById('heroIntro')) document.getElementById('heroIntro').textContent=c.intro;
+  if(document.getElementById('heroHours')) document.getElementById('heroHours').textContent='◷ '+c.hours;
+  if(document.getElementById('ctaTitle')) document.getElementById('ctaTitle').textContent=c.cta;
+  toast('محتوا ذخیره و اعمال شد','ok');
+}
+function resetContent(){
+  document.getElementById('editTitle').value='لبخند شما، امضای زیبایی و سلامت شماست';
+  document.getElementById('editEyebrow').value='لبخند سالم، حس خوب زندگی';
+  document.getElementById('editIntro').value='در دندانکده، با دانش تخصصی، تجهیزات مدرن و محیطی آرام، مسیر رسیدن به لبخندی سالم و زیبا را برای شما هموار می‌کنیم.';
+  document.getElementById('editHours').value='شنبه تا پنجشنبه، ۱۰ صبح تا ۸ شب';
+  document.getElementById('editCta').value='آماده شروع مسیر لبخند سالم هستید؟';
+  saveContent();
+}
+
+function handleMedia(e){
+  const out=document.getElementById('mediaPreview');out.innerHTML='';
+  [...e.target.files].forEach(f=>{
+    const item=document.createElement('div');item.className='media-item';
+    const label=document.createElement('div');label.textContent=f.name+' · '+Math.round(f.size/1024)+'KB';
+    if(f.type.startsWith('image/')){const img=document.createElement('img');img.src=URL.createObjectURL(f);item.appendChild(img)}
+    else{const box=document.createElement('div');box.style.cssText='height:110px;display:grid;place-items:center;background:#f2ebf8;font-size:12px';box.textContent=f.type.startsWith('video/')?'▶ ویدیو':'📄 فایل';item.appendChild(box)}
+    item.appendChild(label);out.appendChild(item);
+  });
+}
+
+function renderReviews(){
+  const a=db.reviews||[];
+  const el=document.getElementById('adminReviews');
+  if(el) el.innerHTML=a.length?a.map((r,i)=>`
+    <div class="list-card" style="margin-bottom:8px">
+      <b>${r.name}</b> ${'★'.repeat(r.rate)}${'☆'.repeat(5-r.rate)}
+      <small>${r.text}</small>
+      <button class="btn danger-btn btn-sm" style="margin-top:6px" onclick="db.reviews.splice(${i},1);persist();renderReviews();toast('حذف شد','ok')">حذف</button>
+    </div>`).join(''):emptyMsg('نظری نیست.');
+  const pub=document.getElementById('reviewList');
+  if(pub) pub.innerHTML=a.length?a.slice(-3).reverse().map(r=>`<div style="margin-bottom:8px"><b>${r.name}</b> ${'★'.repeat(r.rate)}<br><small style="color:#777">${r.text}</small></div>`).join(''):'<p>هنوز نظری ثبت نشده.</p>';
+}
+function openReviewModal(){document.getElementById('reviewModal').classList.add('open')}
+function closeReviewModal(){document.getElementById('reviewModal').classList.remove('open')}
+function submitReview(){
+  const name=document.getElementById('revName').value.trim();
+  if(!name) return toast('نام را وارد کنید','err');
+  db.reviews.push({name,rate:Number(document.getElementById('revRate').value),text:document.getElementById('revText').value.trim()||'تجربه خوب'});
+  persist();renderReviews();closeReviewModal();
+  document.getElementById('revName').value='';document.getElementById('revText').value='';
+  toast('نظر ثبت شد','ok');
+}
+
+function importPatients(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      let rows=[];
+      if(file.name.toLowerCase().endsWith('.csv')) rows=ev.target.result.split(/\r?\n/).filter(Boolean).map(x=>x.split(','));
+      else{const wb=XLSX.read(ev.target.result,{type:'array'});rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1})}
+      let n=0;
+      rows.slice(1).forEach(r=>{if(r[0]){db.patients.push({id:uid('P'),name:r[0],phone:r[1]||'',topic:r[2]||'نامشخص',status:'واردشده'});n++}});
+      persist();renderPatients();renderDashboard();toast(n+' پرونده وارد شد','ok');
+    }catch(err){toast('فرمت فایل نامعتبر','err')}
+  };
+  reader.readAsArrayBuffer(file);
+}
+function downloadTemplate(){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(['نام,موبایل,موضوع,کد\nمثال,09120000000,ایمپلنت,P-1004'],{type:'text/csv;charset=utf-8'}));
+  a.download='patient-template.csv';a.click();
+}
+function exportData(){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(db,null,2)],{type:'application/json'}));
+  a.download='dandankade-data.json';a.click();
+  toast('خروجی دانلود شد','ok');
+}
+function resetAllData(){
+  if(!confirm('همه داده‌ها پاک شود؟')) return;
+  db=structuredClone(defaults);persist();renderAll();toast('داده‌ها پاک شد','ok');
+}
+function renderAll(){
+  renderDashboard();renderPatients();renderAppointments();renderCRM();
+  renderAccounting();renderInventory();renderLab();renderReviews();renderDoctors();
+}
+
+renderReviews();
+</script>
+<script>
+function toggleDark(){document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark'))}
+if(localStorage.getItem('dark')==='true')document.body.classList.add('dark');
+const translations={fa:{},en:{},ar:{}};
+function setLang(l){document.documentElement.lang=l;localStorage.setItem('lang',l);alert('Language: '+l+' (ترجمه کامل در حال اتصال)')}
+</script></body>
+</html>
